@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     'content',
-    'user'
+    'user',
+    'mysite'
 
 ]
 
@@ -120,9 +122,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# 뉴 세팅
+# 각 media 파일에 대한 URL prefix
+MEDIA_URL = '/media/' #항상 / 로 끝나도록하기
+
+# 업로드 파일 저장할 디렉터리 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 커스텀 유저 모델사용
+AUTH_USER_MODEL = 'user.User'
