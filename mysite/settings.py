@@ -86,15 +86,15 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
+import os
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "HOST" : "db-youtube-devops.cluster-cziu66mu4zgb.ap-northeast-2.rds.amazonaws.com",
-
+        "HOST" : os.environ.get('MYSQL_HOST', 'localhost'),
         "NAME": "youtube_devops",
-
-        "USER": "admin",
-        "PASSWORD": "password",
+        "USER": os.environ.get("MYSQL_USER_NAME","default_user"),
+        "PASSWORD": os.environ.get("MYSQL_PASSWORD","default_password"),
         "PORT": "3306",
         "OPTIONS": {"charset": "utf8mb4"}
     }
