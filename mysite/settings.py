@@ -89,11 +89,11 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "HOST" : "13.124.121.125",
+        "HOST" : "db-youtube-devops.cluster-cziu66mu4zgb.ap-northeast-2.rds.amazonaws.com",
 
         "NAME": "youtube_devops",
 
-        "USER": "root",
+        "USER": "admin",
         "PASSWORD": "password",
         "PORT": "3306",
         "OPTIONS": {"charset": "utf8mb4"}
