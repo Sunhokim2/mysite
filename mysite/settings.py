@@ -98,8 +98,17 @@ DATABASES = {
         "PASSWORD": os.environ.get("MYSQL_PASSWORD","default_password"),
         "PORT": "3306",
         "OPTIONS": {"charset": "utf8mb4"}
-    }
+    },
+    'server_status': {  # 새로 추가할 서버 상태 데이터베이스 설정
+        'ENGINE': 'django.db.backends.mysql',
+        "HOST" : os.environ.get('MYSQL_HOST', 'localhost'),
+        'NAME': 'server_status_db',  # 서버 상태용 데이터베이스 이름
+        "USER": os.environ.get("MYSQL_USER_NAME", "default_user"),
+        "PASSWORD": os.environ.get("MYSQL_PASSWORD", "default_password"),
+        'PORT': '3306',
+    },
 }
+DATABASE_ROUTERS = ['mysite.database_router.ServerStatusRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
