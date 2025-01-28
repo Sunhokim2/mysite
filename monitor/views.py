@@ -4,7 +4,7 @@ import psutil
 from django.http import JsonResponse
 from django.shortcuts import render
 
-from mysite.monitor.models import ServerStatus
+from .models import ServerStatus
 
 
 def server_status(request):
