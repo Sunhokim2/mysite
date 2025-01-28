@@ -108,7 +108,7 @@ DATABASES = {
         'PORT': '3306',
     },
 }
-DATABASE_ROUTERS = ['.database_router.ServerStatusRouter']
+DATABASE_ROUTERS = ['mysite.database_router.ServerStatusRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
