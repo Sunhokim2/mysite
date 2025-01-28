@@ -30,7 +30,10 @@ urlpatterns = [
 
     path('main/',Main.as_view()),
     path('content/',include('content.urls')),
-    path('user/',include('user.urls'))
+    path('user/',include('user.urls')),
+    
+    # 서버상태 모니터링 API
+    path('monitor/', include('monitor.urls')),  # monitor API 추가
 ]
 
 urlpatterns += static(MEDIA_URL, document_root = MEDIA_ROOT)

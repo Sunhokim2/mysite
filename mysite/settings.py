@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 
     'content',
     'user',
-    'mysite'
+    'mysite',
+    'monitor'
 
 ]
 
