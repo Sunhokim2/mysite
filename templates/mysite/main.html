@@ -453,7 +453,7 @@
                 console.log("성공");
                 alert("댓글 성공");
                 $("#reply_list_" + feed_id).append("<div style='margin: 0 20px;text-align: left;font-size: 14px'><b>{{ user.nickname }}</b> " + reply_content + "</div>")
-                {#location.replace('/main');}
+                {#location.replace('/main');#}
 
             },
             error: function (request, status, error) {
