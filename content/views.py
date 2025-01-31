@@ -6,7 +6,7 @@ from .models import Feed, Reply, Like, Bookmark
 from user.models import User
 
 import os
-from mysite.mysite.settings import MEDIA_ROOT
+from mysite.settings import MEDIA_ROOT
 
 # Create your views here.
 class Main(APIView):
