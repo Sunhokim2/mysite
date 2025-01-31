@@ -69,7 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media', # media폴더 사용하기 위함
+                # 'django.template.context_processors.media', # media폴더 사용하기 위함
             ],
         },
     },
