@@ -3,10 +3,10 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Feed, Reply, Like, Bookmark
-from user.models import User
+from mysite.user.models import User
 
 import os
-from mysite.settings import MEDIA_ROOT
+from mysite.mysite.settings import MEDIA_ROOT
 
 # Create your views here.
 class Main(APIView):
