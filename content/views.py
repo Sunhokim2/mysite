@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Feed, Reply, Like, Bookmark
-from mysite.user.models import User
+from apps.user.models import User
 
 import os
 from mysite.mysite.settings import MEDIA_ROOT
