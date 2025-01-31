@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from .models import User
 from django.contrib.auth.hashers import make_password
 
-from mysite.mysite.settings import MEDIA_ROOT
+from mysite.settings import MEDIA_ROOT
 
 class Join(APIView):
     def get(self, request):
