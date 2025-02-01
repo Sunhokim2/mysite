@@ -11,7 +11,12 @@
 
     <!-- Jquery -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+    <script>
+        window.onload = function() {
+            var sessionData = "{{ session_data|safe }}";  // Django 데이터를 JavaScript에서 사용
+            alert("세션 데이터: " + sessionData);
+        };
+    </script>
 
     <title>로그인!</title>
 </head>

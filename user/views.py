@@ -56,9 +56,9 @@ class Login(APIView):
 class LogOut(APIView):
     def get(self, request):
         session_data = request.session.items()
-        print(f"세션데이터 : {session_data}")
+
         request.session.flush()
-        return render(request, "user/login.html")
+        return render(request, "user/login.html",{'session_data':session_data})
 
 
 class UploadProfile(APIView):
