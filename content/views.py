@@ -46,7 +46,8 @@ class Main(APIView):
                                   nickname=feed_user.nickname,
                                   reply_list=reply_list,
                                   is_liked=is_liked,
-                                  is_marked=is_marked
+                                  is_marked=is_marked,
+                                  email = feed.email
                                   ))
         user = User.objects.filter(email=email).first()
 
