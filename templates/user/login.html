@@ -58,19 +58,21 @@
 
         $.ajax({
             url: "/user/login",
-            data: {
+            data: JSON.stringify({ // JSON 형태로 데이터 전송
                 email : email,
                 password : password
-            },
+            }),
+            contentType: "application/json",
             method: "POST",
             success: function (data) {
                 console.log("성공");
-                alert("로그인 성공");
+                alert("로그인 성공! : " + data.nickname);
                 location.replace('/main');
 
             },
             error: function (request, status, error) {
-                console.log("에러");
+                console.log("로그인실패");
+                alert("로그인 실패"); // 서버의 응답 메시지를 alert
             },
             complete: function () {
                 console.log("완료");
