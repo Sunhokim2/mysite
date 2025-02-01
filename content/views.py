@@ -72,6 +72,10 @@ class UploadFeed(APIView):
         content123 = request.data.get('content')
         email = request.session.get('email', None)
 
+        # 세션에 이메일 제대로 있는지 확인
+        if email is None:
+            return Response(status=400)
+
         Feed.objects.create(image=asdf, content=content123, email=email)
 
         return Response(status=200)
