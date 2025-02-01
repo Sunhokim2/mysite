@@ -41,7 +41,8 @@ class Login(APIView):
         user = User.objects.filter(email=email).first()
 
         if user is None:
-            return Response(status=400, data=dict(message="email이 잘못되었습니다."))
+            # json타입인거 설정하고 리턴
+            return Response(status=400, data=dict(message="email이 잘못되었습니다."), content_type="application/json")
 
         if user.check_password(password): # TODO 로그인을 했다. 세션 or 쿠키
             request.session['email'] = email
@@ -50,7 +51,7 @@ class Login(APIView):
 
             return Response(status=200)
         else:
-            return Response(status=400, data=dict(message="비밀번호가 잘못되었습니다."))
+            return Response(status=400, data=dict(message="비밀번호가 잘못되었습니다."), content_type="application/json")
 
 
 class LogOut(APIView):
