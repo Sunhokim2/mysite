@@ -22,7 +22,9 @@ class Main(APIView):
             return render(request, "user/login.html")
 
         feed_object_list = Feed.objects.all().order_by('-id')  # select  * from content_feed;
+        feed_email = Feed.objects.values_list('email', flat=True)
         feed_list = []
+
 
         for feed in feed_object_list:
             feed_user = User.objects.filter(email=feed.email).first()
@@ -51,7 +53,7 @@ class Main(APIView):
                                   ))
         user = User.objects.filter(email=email).first()
 
-        return render(request, "mysite/main.html", context=dict(feeds=feed_list, user=user, user_info=user))
+        return render(request, "mysite/main.html", context=dict(feeds=feed_list, user=user, feed_email=feed_email))
 
 class UploadFeed(APIView):
     def post(self, request):

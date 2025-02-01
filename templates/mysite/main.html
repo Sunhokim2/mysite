@@ -307,7 +307,13 @@
 <div>
     {{ user.nickname }}
     {{ user.name }}
-    <p>User object: {{ user_info }}</p>
+            <h2>Feed Emails:</h2>
+        <ul>
+            {% for email in feed_email %}
+                <li>{{ email }}</li>
+            {% endfor %}
+        </ul>
+
     {% for feed in feeds %}
         <p>피드 ID    : {{ feed.id }}</p>
         <p>피드 내용   : {{ feed.content}}</p>
