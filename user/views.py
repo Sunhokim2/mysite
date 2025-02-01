@@ -49,7 +49,7 @@ class Login(APIView):
             request.session['nickname'] = user.nickname
             request.session.set_expiry(3600)  # 세션 유지 시간 설정 (1시간)
 
-            return Response(status=200)
+            return Response(status=200, data=dict(message=f"로그인 성공. {user.nickname}님 환영합니다."), content_type="application/json")
         else:
             return Response(status=400, data=dict(message="비밀번호가 잘못되었습니다."), content_type="application/json")
 
