@@ -308,11 +308,20 @@
     {{ user.nickname }}
     {{ user.name }}
     {% for feed in feeds %}
-        <p>{{ feed.content}}</p>
-    <p>{{ feed.user_id }}</p>
-    <p>{{ feed.like_count }}</p>
+        <p>피드 ID    : {{ feed.id }}</p>
+        <p>피드 내용   : {{ feed.content}}</p>
+        <p>피드작성유저id: {{ feed.user_id }}</p>
+        <p>피드좋아요 수 : {{ feed.like_count }}</p>
+
+    {% for reply in feed.reply_list %}
+    <div style="margin: 0 20px;text-align: left;font-size: 14px">
+        <b>{{ reply.nickname }}</b> {{ reply.reply_content }}</div>
+    {% endfor %}
+
+
     {% endfor %}
 </div>
+
 <!-- 첫번째 모달 -->
 <div id="first_modal" class="modal_overlay">
     <div class="modal_window">
