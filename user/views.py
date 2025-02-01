@@ -43,14 +43,14 @@ class Login(APIView):
         if user is None:
             return Response(status=400, data=dict(message="회원정보가 잘못되었습니다."))
 
-        if user.check_password(password):
-            # TODO 로그인을 했다. 세션 or 쿠키
-            request.session['email'] = email
-            request.session['nickname'] = user.nickname
-
-            return Response(status=200)
-        else:
-            return Response(status=400, data=dict(message="회원정보가 잘못되었습니다."))
+        # if user.check_password(password):
+        #     # TODO 로그인을 했다. 세션 or 쿠키
+        #     request.session['email'] = email
+        #     request.session['nickname'] = user.nickname
+        #
+        #     return Response(status=200)
+        # else:
+        return Response(status=400, data=dict(message="회원정보가 잘못되었습니다."))
 
 
 class LogOut(APIView):
