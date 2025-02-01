@@ -65,14 +65,26 @@
             contentType: "application/json",
             method: "POST",
             success: function (data) {
-                console.log("성공");
-                alert("로그인 성공! : " + data.email);
-                location.replace('/main');
-
+                console.log("로그인 성공", data);
+                alert(data.message);  // ✅ 서버에서 받은 message 출력
+                location.replace('/main');  // 로그인 성공 시 메인 페이지로 이동
             },
-            error: function (request, data) {
-                console.log("로그인실패");
-                alert("로그인 실패 : " + data.message); // 서버의 응답 메시지를 alert
+            error: function (request) {
+                let errorMessage = "알 수 없는 오류가 발생했습니다.";
+
+                // JSON 응답이 존재하는지 확인
+                if (request.responseJSON && request.responseJSON.message) {
+                    errorMessage = request.responseJSON.message;
+                } else {
+                    try {
+                        let parsedResponse = JSON.parse(request.responseText);
+                        errorMessage = parsedResponse.message;
+                    } catch (e) {
+                        console.error("JSON 파싱 실패:", e);
+                    }
+                }
+                console.log("로그인 실패", request);
+                alert("로그인 실패: " + errorMessage);
             },
             complete: function () {
                 console.log("완료");
