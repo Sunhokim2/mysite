@@ -8,10 +8,11 @@ from .models import User
 from django.contrib.auth.hashers import make_password
 
 from mysite.settings import MEDIA_ROOT
+from mysite.settings import MEDIA_URL
 
 class Join(APIView):
     def get(self, request):
-        return render(request, "user/join.html")
+        return render(request, "user/join.html",{"media_url": MEDIA_URL})
 
     def post(self, request):
         # TODO 회원가입
