@@ -16,9 +16,9 @@ class Main(APIView):
         if email is None:
             return render(request, "user/login.html")
 
-        user = User.objects.filter(email=email).first()
+        loginuser = User.objects.filter(email=email).first()
 
-        if user is None:
+        if loginuser is None:
             return render(request, "user/login.html")
 
         feed_object_list = Feed.objects.all().order_by('-id')  # select  * from content_feed;
@@ -50,7 +50,7 @@ class Main(APIView):
                                   ))
 
 
-        return render(request, "mysite/main.html", context=dict(feeds=feed_list, user=user))
+        return render(request, "mysite/main.html", context=dict(feeds=feed_list, user=loginuser))
 
 class UploadFeed(APIView):
     def post(self, request):
