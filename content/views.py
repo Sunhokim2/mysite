@@ -28,6 +28,7 @@ class Main(APIView):
             user = User.objects.filter(email=feed.email).first()
             reply_object_list = Reply.objects.filter(feed_id=feed.id)
             reply_list = []
+
             for reply in reply_object_list:
                 user = User.objects.filter(email=reply.email).first()
                 reply_list.append(dict(reply_content=reply.reply_content,
@@ -35,12 +36,14 @@ class Main(APIView):
             like_count=Like.objects.filter(feed_id=feed.id, is_like=True).count()
             is_liked=Like.objects.filter(feed_id=feed.id, email=email, is_like=True).exists()
             is_marked=Bookmark.objects.filter(feed_id=feed.id, email=email, is_marked=True).exists()
+            nickname = User.objects.filter(email=feed.email).first().nickname
+            # 피드에 들어갈 닉네임은 피드작성한 당사자의 이메일기반으로 닉 찾아야함
             feed_list.append(dict(id=feed.id,
                                   image=feed.image,
                                   content=feed.content,
                                   like_count=like_count,
                                   profile_image=user.profile_image,
-                                  nickname=user.nickname,
+                                  nickname=nickname,
                                   reply_list=reply_list,
                                   is_liked=is_liked,
                                   is_marked=is_marked
