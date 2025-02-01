@@ -21,6 +21,7 @@ from django.urls import include,path
 from .views import Sub
 from content.views import Main, UploadFeed
 from .settings import MEDIA_URL, MEDIA_ROOT
+from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -36,4 +37,4 @@ urlpatterns = [
     path('monitor/', include('monitor.urls')),  # monitor API 추가
 ]
 
-urlpatterns += static(MEDIA_URL, document_root = MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
