@@ -46,6 +46,7 @@ class Login(APIView):
         if user.check_password(password):
             # TODO 로그인을 했다. 세션 or 쿠키
             request.session['email'] = email
+            request.session['nickname'] = user.nickname
 
             return Response(status=200)
         else:
