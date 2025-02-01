@@ -72,7 +72,7 @@
             },
             error: function (request, status, error) {
                 console.log("로그인실패");
-                alert("로그인 실패" + request.responseJSON.message); // 서버의 응답 메시지를 alert
+                alert("로그인 실패 : " + request.responseJSON.message); // 서버의 응답 메시지를 alert
             },
             complete: function () {
                 console.log("완료");
