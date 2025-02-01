@@ -27,7 +27,7 @@ class Main(APIView):
 
 
         for feed in feed_object_list:
-            feed_user = User.objects.filter(email=feed_email).first()
+            feed_user = User.objects.filter(email=feed.email).first()
             reply_object_list = Reply.objects.filter(feed_id=feed.id)
             reply_list = []
 
@@ -49,7 +49,7 @@ class Main(APIView):
                                   reply_list=reply_list,
                                   is_liked=is_liked,
                                   is_marked=is_marked,
-                                  email = feed_email
+                                  email = feed_user.email
                                   ))
         user = User.objects.filter(email=email).first()
 
