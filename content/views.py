@@ -49,7 +49,7 @@ class Main(APIView):
                                   reply_list=reply_list,
                                   is_liked=is_liked,
                                   is_marked=is_marked,
-                                  email = feed.email
+                                  email = feed_email
                                   ))
         user = User.objects.filter(email=email).first()
 
@@ -71,10 +71,6 @@ class UploadFeed(APIView):
         asdf = uuid_name
         content123 = request.data.get('content')
         email = request.session.get('email', None)
-
-        # 세션에 이메일 제대로 있는지 확인
-        if email is None:
-            return Response(status=400)
 
         Feed.objects.create(image=asdf, content=content123, email=email)
 
